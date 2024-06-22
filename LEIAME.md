@@ -1,5 +1,5 @@
 # time-based-wallpapers (Papéis de Parede Baseados no Tempo)
-
+## Descrição
 Um script PowerShell que muda automaticamente o papel de parede do seu desktop com base no horário do dia. Este script suporta vários monitores e permite uma personalização fácil dos caminhos dos papéis de parede e dos intervalos de tempo. Ideal para criar uma experiência de desktop dinâmica e personalizada.
 
 ## Como Executar o Script e Adicionar ao Agendador de Tarefas do Windows
