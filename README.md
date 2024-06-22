@@ -49,7 +49,7 @@ $night = "C:\Users\username\images\wallpapers\4.jpeg"
 3. **Test the Script**:
    - Navigate to the directory where your script is saved using the `cd` command. For example:
      ```powershell
-     cd C:\Users\username\images\wallpapers
+     cd C:\Users\your_script_path\
      ```
    - Run the script:
      ```powershell
