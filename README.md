@@ -72,8 +72,8 @@ $night = "C:\Users\username\images\wallpapers\4.jpeg"
 
 4. **Trigger Settings**:
    - Go to the `Triggers` tab and click `New`.
-   - Set the task to start `At log on` and repeat every hour (or your preferred interval). For example:
-     - Begin the task: `At log on`
+   - Set the task to start `At startup` and repeat every hour (or your preferred interval). For example:
+     - Begin the task: `At startup`
      - Repeat task every: `1 hour`
      - For a duration of: `Indefinitely`
      - Set: `Enabled`
