@@ -1,7 +1,8 @@
 # time-based-wallpapers
 ***Documentação PT_BR:*** [LEIAME.md](https://github.com/BrendowPaolillo-dev/time-based-wallpapers/blob/main/LEIAME.md)
+
 ## Description
-A PowerShell script that automatically changes your desktop wallpaper based on the time of day. This script supports multiple monitors and allows for easy customization of wallpaper paths and time intervals. Ideal for creating a dynamic and personalized desktop experience.
+A PowerShell script that automatically changes your desktop wallpaper based on the time of day. This script supports multiple monitors and allows for easy customization of wallpaper paths and time intervals. Ideal for creating a dynamic and personalized desktop experience. The script selects a random wallpaper from specified directories based on the time of day.
 
 ## How to Run the Script and Add It to the Windows Task Scheduler
 
@@ -14,25 +15,25 @@ This guide will walk you through the steps required to execute the script correc
 
 ## Preparing the Script
 
-Before running the `time_based_wallpapers.ps1` script, you need to customize it by specifying the paths to your wallpaper images. Follow these steps to prepare the script:
+Before running the `time_based_wallpapers.ps1` script, you need to customize it by specifying the paths to your wallpaper image directories. Follow these steps to prepare the script:
 
 1. **Locate Your Wallpaper Images**
 
-   - Ensure you have the wallpaper images saved in a directory on your system. For example, let's say your images are located in `C:\Users\username\images\wallpapers`. Make a note of this directory path.
+   - Ensure you have the wallpaper images saved in directories on your system. For example, let's say your images are located in `C:\Users\username\images\wallpapers\morning`, `C:\Users\username\images\wallpapers\afternoon`, `C:\Users\username\images\wallpapers\evening`, and `C:\Users\username\images\wallpapers\night`. Make a note of these directory paths.
 
 2. **Edit the Script**
 
-   - Open the `time_based_wallpapers.ps1` script file in a text editor such as Notepad or Visual Studio Code. You'll need to modify the script to point to your specific wallpaper images.
+   - Open the `time_based_wallpapers.ps1` script file in a text editor such as Notepad or Visual Studio Code. You'll need to modify the script to point to your specific wallpaper directories.
 
 3. **Update Image Paths**
 
-   - Find the following section in the script, replace the paths and save the script.:
+   - Find the following section in the script, replace the paths, and save the script:
 
 ```powershell
-$morning = "C:\Users\username\images\wallpapers\1.jpeg"
-$afternoon = "C:\Users\username\images\wallpapers\2.jpeg"
-$evening = "C:\Users\username\images\wallpapers\3.jpeg"
-$night = "C:\Users\username\images\wallpapers\4.jpeg"
+$morningDir = "C:\Users\username\images\wallpapers\morning"
+$afternoonDir = "C:\Users\username\images\wallpapers\afternoon"
+$eveningDir = "C:\Users\username\images\wallpapers\evening"
+$nightDir = "C:\Users\username\images\wallpapers\night"
 ```
 
 ## Steps to Execute the Script
