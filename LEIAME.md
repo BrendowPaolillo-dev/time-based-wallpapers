@@ -68,6 +68,7 @@ $night = "C:\Users\username\images\wallpapers\4.jpeg"
 3. **Configurações Gerais**:
    - Nomeie a tarefa, por exemplo, `Trocar Papel de Parede com Base no Tempo`.
    - Selecione `Executar apenas quando o usuário estiver conectado`.
+   - Selecione `Executar com privilégios mais altos`.
 
 4. **Configurações de Disparo**:
    - Vá para a guia `Disparadores` e clique em `Novo`.

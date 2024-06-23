@@ -69,6 +69,7 @@ $night = "C:\Users\username\images\wallpapers\4.jpeg"
 3. **General Settings**:
    - Name the task, e.g., `Change Wallpaper Based on Time`.
    - Select `Run only when user is logged on`.
+   - Select `Run with highest privileges`.
 
 4. **Trigger Settings**:
    - Go to the `Triggers` tab and click `New`.
