@@ -72,8 +72,8 @@ $night = "C:\Users\username\images\wallpapers\4.jpeg"
 
 4. **Configurações de Disparo**:
    - Vá para a guia `Disparadores` e clique em `Novo`.
-   - Configure a tarefa para iniciar `Ao fazer logon` e repetir a cada hora (ou o intervalo preferido). Por exemplo:
-     - Inicie a tarefa: `Ao fazer logon`
+   - Configure a tarefa para iniciar `Ao inicializar` e repetir a cada hora (ou o intervalo preferido). Por exemplo:
+     - Inicie a tarefa: `Ao inicializar`
      - Repita a tarefa a cada: `1 hora`
      - Por um período de: `Indefinidamente`
      - Marque: `Habilitado`
