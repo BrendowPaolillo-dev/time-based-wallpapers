@@ -38,24 +38,39 @@ $nightDir = "C:\Users\username\images\wallpapers\night"
 
 ## Passos para Executar o Script
 
-1. **Abra o PowerShell como Administrador**:
+1. **Arquivo de Lote (.bat)**:
+   - Altere o arquivo de lote chamado `run.bat`:
+
+     ```batch
+     powershell -NoProfile -ExecutionPolicy Bypass -File "C:\Users\seu_caminho_para_o_script\time_based_wallpapers.ps1"
+     ```
+
+2. **Arquivo VBS (Windows Script Host)**:
+   - Altere o arquivo VBS chamado `run.vbs`:
+
+     ```vbscript
+     Set objShell = CreateObject("WScript.Shell")
+     objShell.Run "C:\Users\seu_caminho_para_o_script\run.bat", 0, False
+     ```
+
+3. **Abra o PowerShell como Administrador**:
    - Pressione `Windows + X` e selecione `Windows PowerShell (Admin)` ou `Terminal (Admin)`.
 
-2. **Defina a Política de Execução**:
-   - Na janela do PowerShell, defina a política de execução para permitir a execução de scripts. Execute o seguinte comando:
+4. **Defina a Política de Execução**:
+   - No PowerShell, defina a política de execução para permitir a execução de scripts. Execute o seguinte comando:
      ```powershell
      Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
      ```
    - Quando solicitado, digite `Y` e pressione `Enter`.
 
-3. **Teste o Script**:
-   - Navegue até o diretório onde o seu script está salvo usando o comando `cd`. Por exemplo:
+5. **Teste o Script**:
+   - Navegue até o diretório onde seu script está salvo usando o comando `cd`. Por exemplo:
      ```powershell
      cd C:\Users\seu_caminho_para_o_script\
      ```
    - Execute o script:
      ```powershell
-     .\time_based_wallpapers.ps1
+     .\run.vbs
      ```
    - Verifique se o papel de parede muda de acordo com a hora atual.
 
@@ -68,26 +83,26 @@ $nightDir = "C:\Users\username\images\wallpapers\night"
    - No Agendador de Tarefas, clique em `Criar Tarefa` no painel `Ações`.
 
 3. **Configurações Gerais**:
-   - Nomeie a tarefa, por exemplo, `Trocar Papel de Parede com Base no Tempo`.
+   - Nomeie a tarefa, por exemplo, `Mudar Papel de Parede com Base no Tempo`.
    - Selecione `Executar apenas quando o usuário estiver conectado`.
    - Selecione `Executar com privilégios mais altos`.
 
-4. **Configurações de Disparo**:
-   - Vá para a guia `Disparadores` e clique em `Novo`.
-   - Configure a tarefa para iniciar `Ao inicializar` e repetir a cada hora (ou o intervalo preferido). Por exemplo:
-     - Inicie a tarefa: `Ao inicializar`
-     - Repita a tarefa a cada: `1 hora`
-     - Por um período de: `Indefinidamente`
-     - Marque: `Habilitado`
+4. **Configurações de Gatilho**:
+   - Vá para a aba `Gatilhos` e clique em `Novo`.
+   - Defina a tarefa para iniciar `No logon` e repetir a cada hora (ou o intervalo de sua preferência). Por exemplo:
+     - Iniciar a tarefa: `No logon`
+     - Repetir tarefa a cada: `1 hora`
+     - Por uma duração de: `Indefinidamente`
+     - Definir: `Habilitado`
      - Clique em `OK`.
 
 5. **Configurações de Ação**:
    - Vá para a aba `Ações` e clique em `Novo`.
    - Defina `Ação` para `Iniciar um programa`.
-   - No campo `Programa/script`, insira `powershell`.
-   - No campo `Adicionar argumentos (opcional)`, insira o seguinte, substituindo o caminho pelo local do seu script:
+   - No campo `Programa/script`, insira `wscript.exe`.
+   - No campo `Adicionar argumentos (opcional)`, insira o caminho completo do arquivo `run.vbs`. Por exemplo:
      ```powershell
-     -NonInteractive -WindowStyle Hidden -File C:\Users\your_script_path\time_based_wallpapers.ps1
+     "C:\Users\seu_caminho_para_o_script\run.vbs"
      ```
    - Clique em `OK`.
 

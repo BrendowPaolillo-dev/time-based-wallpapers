@@ -1,0 +1,1 @@
+powershell -NoProfile -ExecutionPolicy Bypass -File "C:\Users\your_script_path\time_based_wallpapers.ps1"

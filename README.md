@@ -35,27 +35,41 @@ $afternoonDir = "C:\Users\username\images\wallpapers\afternoon"
 $eveningDir = "C:\Users\username\images\wallpapers\evening"
 $nightDir = "C:\Users\username\images\wallpapers\night"
 ```
-
 ## Steps to Execute the Script
 
-1. **Open PowerShell as Administrator**:
+1. **Batch File (.bat)**:
+   - Modify the batch file named `run.bat`:
+
+     ```batch
+     powershell -NoProfile -ExecutionPolicy Bypass -File "C:\Users\your_script_path\time_based_wallpapers.ps1"
+     ```
+
+2. **VBS File (Windows Script Host)**:
+   - Modify the VBS file named `run.vbs`:
+
+     ```vbscript
+     Set objShell = CreateObject("WScript.Shell")
+     objShell.Run "C:\Users\your_script_path\run.bat", 0, False
+     ```
+
+3. **Open PowerShell as Administrator**:
    - Press `Windows + X` and select `Windows PowerShell (Admin)` or `Terminal (Admin)`.
 
-2. **Set Execution Policy**:
-   - In the PowerShell window, set the execution policy to allow running scripts. Execute the following command:
+4. **Set Execution Policy**:
+   - In PowerShell, set the execution policy to allow running scripts. Execute the following command:
      ```powershell
      Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
      ```
    - When prompted, type `Y` and press `Enter`.
 
-3. **Test the Script**:
+5. **Test the Script**:
    - Navigate to the directory where your script is saved using the `cd` command. For example:
      ```powershell
      cd C:\Users\your_script_path\
      ```
    - Run the script:
      ```powershell
-     .\time_based_wallpapers.ps1
+     .\run.vbs
      ```
    - Verify that the wallpaper changes according to the current time.
 
@@ -65,7 +79,7 @@ $nightDir = "C:\Users\username\images\wallpapers\night"
    - Press `Windows + S`, type `Task Scheduler`, and press `Enter`.
 
 2. **Create a New Task**:
-   - In the Task Scheduler, click on `Create Task` in the `Actions` pane.
+   - In Task Scheduler, click on `Create Task` in the `Actions` pane.
 
 3. **General Settings**:
    - Name the task, e.g., `Change Wallpaper Based on Time`.
@@ -74,8 +88,8 @@ $nightDir = "C:\Users\username\images\wallpapers\night"
 
 4. **Trigger Settings**:
    - Go to the `Triggers` tab and click `New`.
-   - Set the task to start `At startup` and repeat every hour (or your preferred interval). For example:
-     - Begin the task: `At startup`
+   - Set the task to start `At logon` and repeat every hour (or your preferred interval). For example:
+     - Begin the task: `At logon`
      - Repeat task every: `1 hour`
      - For a duration of: `Indefinitely`
      - Set: `Enabled`
@@ -84,10 +98,10 @@ $nightDir = "C:\Users\username\images\wallpapers\night"
 5. **Action Settings**:
    - Go to the `Actions` tab and click `New`.
    - Set `Action` to `Start a program`.
-   - In the `Program/script` field, enter `powershell`.
-   - In the `Add arguments (optional)` field, enter the following, replacing the path with the location of your script:
+   - In the `Program/script` field, enter `wscript.exe`.
+   - In the `Add arguments (optional)` field, enter the full path of the `run.vbs` file. For example:
      ```powershell
-     -NonInteractive -WindowStyle Hidden -File C:\Users\your_script_path\time_based_wallpapers.ps1
+     "C:\Users\your_script_path\run.vbs"
      ```
    - Click `OK`.
 
