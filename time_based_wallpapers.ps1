@@ -1,22 +1,42 @@
-# Image paths
-$morning = "C:\Users\username\images\wallpapers\1.jpeg"
-$afternoon = "C:\Users\username\images\wallpapers\2.jpeg"
-$evening = "C:\Users\username\images\wallpapers\3.jpeg"
-$night = "C:\Users\username\images\wallpapers\4.jpeg"
+# Image directories
+$morningDir = "C:\Users\username\images\wallpapers\morning"
+$afternoonDir = "C:\Users\username\images\wallpapers\afternoon"
+$eveningDir = "C:\Users\username\images\wallpapers\evening"
+$nightDir = "C:\Users\username\images\wallpapers\night"
 
 # Current hour
 $currentHour = (Get-Date).Hour
 
-# Selects the wallpaper based on the current hour
-# To change the schedule or add more time slots, modify or add another elseif condition
+# Function to get a random wallpaper from a directory
+function Get-RandomWallpaper {
+    param (
+        [Parameter(Mandatory = $true)]
+        [string]$directory
+    )
+
+    $supportedExtensions = @('*.jpg', '*.jpeg', '*.png')
+    $files = @()
+
+    foreach ($ext in $supportedExtensions) {
+        $files += Get-ChildItem -Path $directory -Filter $ext
+    }
+
+    if ($files.Count -gt 0) {
+        return $files | Get-Random
+    } else {
+        throw "No supported wallpaper files found in $directory"
+    }
+}
+
+# Select the wallpaper directory based on the current hour
 if ($currentHour -ge 6 -and $currentHour -lt 16) {
-    $wallpaper = $morning
+    $wallpaper = Get-RandomWallpaper -directory $morningDir
 } elseif ($currentHour -ge 16 -and $currentHour -lt 19) {
-    $wallpaper = $afternoon
+    $wallpaper = Get-RandomWallpaper -directory $afternoonDir
 } elseif ($currentHour -ge 19 -and $currentHour -lt 23) {
-    $wallpaper = $evening
+    $wallpaper = Get-RandomWallpaper -directory $eveningDir
 } else {
-    $wallpaper = $night
+    $wallpaper = Get-RandomWallpaper -directory $nightDir
 }
 
 # Function to change the wallpaper on all monitors
@@ -39,4 +59,4 @@ function Set-Wallpaper {
 }
 
 # Changes the wallpaper on all monitors
-Set-Wallpaper -path $wallpaper
+Set-Wallpaper -path $wallpaper.FullName
